@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tip Calculator</title>
+  <style>
+    input {
+      font-size: 2em;
+      margin: 10px 1px 0;
+    }
+    body {
+        background-color: rgba(43, 43, 43, 100);
+    }
+    .tip-title, h2 {
+        color: white;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    p {
+        color: white;
+        font-size: 2em;
+        text-align: center;
+    }
+
+    ul {
+        list-style: none;
+        text-align: center;
+        color: white;
+        font-size: 1.3em;
+    }
+    .tip-box {
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <h1 class="tip-title">Tip Calculator</h1>  
+   <div class="tip-box">
+    <input class="numberInput" type="text">
+    <input type="submit" value="Submit">
+  </div>
+  <p></p>
+  <h2>Why Tip?</h2>
+    <ul><li>A lot of people may ask, why should I tip? Most people who work in the service industry only make around 2 to 3 dollars per hour.
+        They rely on tips to make their money so next time you are thinking about not leaving a tip you really should leave one.
+        I made this calculator to make the job easier for you to calculate what you should leave.</li>
+    </ul>
+  
+  <script>
+    var input = document.querySelector('.numberInput');
+    var para = document.querySelector('p');
+
+    function tenPercent(num) {
+        return num / 10;
+    }
+
+    function fifteen(num) {
+        return num / 15;
+    }
+
+    function twenty(num) {
+        return num / 20; 
+    }
+
+    input.onchange = function() {
+        var num = input.value;
+        if (isNaN(num)) {
+            para.textContent = 'You need to enter a number!';
+        } else {
+            para.textContent = 'If you leave 10% the tip is ' + tenPercent(num) + '. ' + 
+                                'If you leave 15% the tip is ' + fifteen(num) + '. ' +
+                                'If you leave 20% the tip is ' + twenty(num) + '.';
+        }
+    }
+
+
+  </script>
+</body>
+</html>
